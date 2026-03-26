@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="en" class="home-mode">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Omma's Kitchen, order online</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700&display=swap"
+
+      rel="stylesheet"
+
+    />
+
+    <link rel="stylesheet" href="styles.css?v=10" />
+
+  </head>
+
+  <body class="is-home">
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+
+      <div class="header-inner">
+
+        <button type="button" class="logo-btn" id="logoBtn" aria-label="Go to home">
+
+          <span class="logo-mark" aria-hidden="true">◆</span>
+
+          <span class="logo-text">Omma's Kitchen</span>
+
+        </button>
+
+        <button type="button" class="cart-toggle" id="cartToggle" aria-expanded="false" aria-controls="cartPanel">
+
+          <span class="cart-label">Bag</span>
+
+          <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+
+        </button>
+
+      </div>
+
+    </header>
+
+
+
+    <div class="cart-drawer" id="cartPanel" hidden>
+
+      <div class="cart-drawer-header">
+
+        <h2>Your bag</h2>
+
+        <button type="button" class="icon-btn" id="closeCart" aria-label="Close bag">×</button>
+
+      </div>
+
+      <ul class="cart-lines" id="cartLines"></ul>
+
+      <p class="cart-empty" id="cartEmpty">Nothing here yet. Add something from the menu.</p>
+
+      <footer class="cart-footer">
+
+        <div class="cart-subtotal">
+
+          <span>Subtotal</span>
+
+          <strong id="cartSubtotal">$0.00</strong>
+
+        </div>
+
+        <button type="button" class="btn primary full" id="checkoutBtn" disabled>
+
+          Checkout (demo)
+
+        </button>
+
+      </footer>
+
+    </div>
+
+    <div class="cart-backdrop" id="cartBackdrop" hidden aria-hidden="true"></div>
+
+
+
+    <div class="customize-backdrop" id="customizeBackdrop" hidden aria-hidden="true"></div>
+
+    <div
+
+      class="customize-modal"
+
+      id="customizeModal"
+
+      role="dialog"
+
+      aria-modal="true"
+
+      aria-labelledby="customizeTitle"
+
+      hidden
+
+    >
+
+      <div class="customize-dialog">
+
+        <div class="customize-dialog-head">
+
+          <h2 id="customizeTitle" class="customize-dish-name"></h2>
+
+          <button type="button" class="icon-btn customize-close" id="customizeClose" aria-label="Close customization">×</button>
+
+        </div>
+
+        <p class="customize-dish-desc muted" id="customizeDesc"></p>
+
+        <form id="customizeForm" class="customize-form">
+
+          <fieldset class="customize-fieldset" id="customizeLeaveOutFieldset">
+
+            <legend>Leave out</legend>
+
+            <p class="customize-hint muted" id="customizeLeaveOutHint">Check anything you want left off your dish.</p>
+
+            <div class="customize-check-grid" id="customizeLeaveOut"></div>
+
+          </fieldset>
+
+          <label class="customize-label">
+
+            <span>Add or request extra</span>
+
+            <textarea
+
+              id="customizeAdd"
+
+              name="add"
+
+              rows="2"
+
+              placeholder="e.g. Extra kimchi on the side, double rice"
+
+              autocomplete="off"
+
+            ></textarea>
+
+          </label>
+
+          <label class="customize-label">
+
+            <span>Allergies &amp; important notes</span>
+
+            <textarea
+
+              id="customizeAllergies"
+
+              name="allergies"
+
+              rows="2"
+
+              placeholder="Allergies, intolerances, or cross-contact concerns"
+
+              autocomplete="off"
+
+            ></textarea>
+
+          </label>
+
+          <div class="customize-actions">
+
+            <button type="button" class="btn ghost" id="customizeCancel">Cancel</button>
+
+            <button type="submit" class="btn primary">Add to bag</button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+    <div class="confirm-backdrop" id="confirmBackdrop" hidden aria-hidden="true"></div>
+    <div
+      class="confirm-modal"
+      id="confirmModal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="confirmTitle"
+      hidden
+    >
+      <div class="confirm-dialog">
+        <div class="confirm-bag-icon" aria-hidden="true">👜</div>
+        <h2 id="confirmTitle">Would you like to Confirm?</h2>
+        <div class="confirm-actions">
+          <button type="button" class="btn ghost" id="confirmNo">No</button>
+          <button type="button" class="btn primary" id="confirmYes">Yes</button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <main id="main">
+
+      <section class="view view-home" id="viewHome" data-view-panel>
+
+        <div class="hero-layout">
+
+          <div class="hero-copy">
+
+            <div class="hero-copy-slide-wrap">
+
+              <div
+
+                class="hero-copy-viewport"
+
+                id="heroCopyViewport"
+
+                aria-live="polite"
+
+                aria-atomic="true"
+
+              >
+
+                <div class="hero-copy-track" id="heroCopyTrack"></div>
+
+              </div>
+
+            </div>
+
+            <button type="button" class="btn primary" id="heroCta">View menu</button>
+
+          </div>
+
+          <figure class="hero-visual" id="heroCarousel" aria-label="Food photos"></figure>
+
+        </div>
+
+      </section>
+
+
+
+      <section class="view view-menu hidden" id="viewMenu" data-view-panel aria-labelledby="menuRestaurantName">
+
+        <div class="menu-hero-wrap">
+          <div class="menu-hero-bg" id="menuHeroBg" role="img" aria-label=""></div>
+        </div>
+
+        <header class="menu-header">
+
+          <div class="menu-header-text">
+
+            <p class="eyebrow" id="menuCuisine"></p>
+
+            <h2 id="menuRestaurantName"></h2>
+
+            <p class="muted" id="menuBlurb"></p>
+
+            <nav class="menu-section-nav" id="menuSectionNav" aria-label="Jump to menu section"></nav>
+
+          </div>
+
+        </header>
+
+        <div class="menu-sections" id="menuSections"></div>
+
+      </section>
+
+    </main>
+
+    <div class="menu-scroll-rail" id="menuScrollRail" aria-hidden="true">
+      <div class="menu-scroll-thumb" id="menuScrollThumb"></div>
+    </div>
+
+
+
+    <footer class="site-footer">
+
+      <p>Omma's Kitchen demo made by Hoyeon Lee, for UI/UX exploration only.</p>
+
+      <p class="site-footer-photos">
+        Photos from
+        <a href="https://www.freepik.com" target="_blank" rel="noopener noreferrer">Freepik.com</a>
+        by jcomp, olavla, and timolina.
+      </p>
+
+    </footer>
+
+
+
+    <script src="data.js?v=12"></script>
+
+    <script src="app.js?v=14"></script>
+
+  </body>
+
+</html>
+
