@@ -557,6 +557,7 @@ body.is-home .hero-copy .btn.primary {
   justify-content: center;
   place-content: center;
   text-align: center;
+  box-shadow: 0 0 18px 4px rgba(240, 184, 92, 0.55), 0 12px 28px rgba(224, 144, 42, 0.35);
 }
 
 .btn {
