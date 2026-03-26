@@ -1376,7 +1376,7 @@ body.cart-open {
     align-items: center;
     text-align: center;
     padding: clamp(1.5rem, 5vw, 2.5rem);
-    background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%);
+    background: none;
   }
 
   .hero-visual {
@@ -1399,6 +1399,15 @@ body.cart-open {
   body:not(.is-home) .hero-copy {
     max-width: none;
     padding: 1.5rem 1.25rem 2.5rem;
+  }
+
+  body.is-home .hero-copy-slide-wrap {
+    background: rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 16px;
+    padding: clamp(1.25rem, 4vw, 1.75rem) clamp(1.25rem, 5vw, 2rem);
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 }
 
