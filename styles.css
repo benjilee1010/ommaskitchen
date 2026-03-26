@@ -1402,12 +1402,16 @@ body.cart-open {
   }
 
   body.is-home .hero-copy-slide-wrap {
-    background: rgba(0, 0, 0, 0.42);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-radius: 16px;
     padding: clamp(1.25rem, 4vw, 1.75rem) clamp(1.25rem, 5vw, 2rem);
     border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  body.is-home .hero-copy .lede {
+    color: rgba(255, 255, 255, 0.85);
   }
 }
 
